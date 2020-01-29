@@ -10,28 +10,34 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 public class FileWriter {
-    static HashMap<String,FileOutputStream> open_streams;
-    public static FileOutputStream  OpenFile(File file,String path){
-        FileOutputStream writer=null;
+    static HashMap<String,FileOutputStream> open_streams=new HashMap<>();
+    public static FileOutputStream  OpenFile(String path,String name){
+        File file=new File(path);
+        FileOutputStream stream=null;
+
         try {
-
-
-
+            //create file if it doesn't exist yet
             if (!file.exists()) {
                 file.createNewFile();
-
-
-
             }
-            writer = new FileOutputStream(path, true);
-            open_streams.put(path,writer);
 
-        }catch(IOException e){
+            //check if file is already open and get the stream
+            if(open_streams.containsKey(name)){
+                stream=open_streams.get(name);
+            }else {
+                //if not: open file and add it to open file list
+                stream = new FileOutputStream(path, true);
+                open_streams.put(name,stream);
+            }
+
+
+
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
-
-        return writer;
+        return stream;
 
     }
 
@@ -41,11 +47,11 @@ public class FileWriter {
     public static void writeData(LinkedList<String> weatherData) {
         try {
             Path currentDir = FileSystems.getDefault().getPath("");
+            String station_name=weatherData.get(0);
+            String path = currentDir + station_name + ".csv";
 
-            String path = currentDir + weatherData.get(2) + ".csv";
 
-            File file = new File(path);
-            FileOutputStream writer=OpenFile(file,path);
+            FileOutputStream writer=OpenFile(path,station_name);
 
 
             writer.write((weatherData.get(0)+","+weatherData.get(1)+","+weatherData.get(2)
@@ -60,6 +66,21 @@ public class FileWriter {
         }
     }
     public static void main(String [] args){
-        FileWriter.writeData(new LinkedList<>());
+        LinkedList<String> weatherData=new LinkedList<>();
+        weatherData.add("1");
+        weatherData.add("1");
+        weatherData.add("1");
+        weatherData.add("1");
+        weatherData.add("1");
+        weatherData.add("1");
+        weatherData.add("1");
+        weatherData.add("1");
+        weatherData.add("1");
+        weatherData.add("1");
+        weatherData.add("1");
+        weatherData.add("1");
+        weatherData.add("1");
+        weatherData.add("1");
+        FileWriter.writeData(weatherData);
     }
 }
