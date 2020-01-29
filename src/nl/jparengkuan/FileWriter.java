@@ -42,7 +42,7 @@ public class FileWriter {
         try {
             Path currentDir = FileSystems.getDefault().getPath("");
 
-            String path = currentDir + (String) weatherData.get(2) + ".bin";
+            String path = currentDir + (String) weatherData.get(2) + ".csv";
 
             File file = new File(path);
             FileOutputStream writer=OpenFile(file,path);
