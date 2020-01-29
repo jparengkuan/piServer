@@ -1,10 +1,18 @@
 package nl.jparengkuan;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 public class DataParser {
 
-    public static LinkedList<String> DataParser(String buffer)
+    public HashMap<String, String> values;
+
+    public DataParser() {
+        this.values = new HashMap<>();
+    }
+
+    public LinkedList<String> DataParser(String buffer)
     {
         LinkedList<String> data = new LinkedList<String>();
 
@@ -27,6 +35,119 @@ public class DataParser {
 
 
         return data;
+    }
+
+    public void processList(ArrayList list) {
+
+        this.values.clear();
+
+        for(int i = 0; i < list.size(); i++) {
+            String s = list.get(i).toString();
+
+            //System.out.println(s);
+            if(s.contains("STN")) {
+                String temp = s;
+                temp = temp.substring(temp.indexOf(">") + 1);
+                temp = temp.substring(0, temp.indexOf("<"));
+                this.values.put("Station", temp);
+            }
+
+            if(s.contains("DATE")) {
+                String temp = s;
+                temp = temp.substring(temp.indexOf(">") + 1);
+                temp = temp.substring(0, temp.indexOf("<"));
+                this.values.put("Date", temp);
+            }
+
+            if(s.contains("TIME")) {
+                String temp = s;
+                temp = temp.substring(temp.indexOf(">") + 1);
+                temp = temp.substring(0, temp.indexOf("<"));
+                this.values.put("Time", temp);
+            }
+
+            if(s.contains("TEMP")) {
+                String temp = s;
+                temp = temp.substring(temp.indexOf(">") + 1);
+                temp = temp.substring(0, temp.indexOf("<"));
+                this.values.put("Temperature", temp);
+            }
+
+            if(s.contains("DEWP")) {
+                String temp = s;
+                temp = temp.substring(temp.indexOf(">") + 1);
+                temp = temp.substring(0, temp.indexOf("<"));
+                this.values.put("Dew", temp);
+            }
+
+            if(s.contains("STP")) {
+                String temp = s;
+                temp = temp.substring(temp.indexOf(">") + 1);
+                temp = temp.substring(0, temp.indexOf("<"));
+                this.values.put("Air Pressure Station", temp);
+            }
+
+            if(s.contains("SLP")) {
+                String temp = s;
+                temp = temp.substring(temp.indexOf(">") + 1);
+                temp = temp.substring(0, temp.indexOf("<"));
+                this.values.put("Air Pressure Sea", temp);
+            }
+
+            if(s.contains("VISIB")) {
+                String temp = s;
+                temp = temp.substring(temp.indexOf(">") + 1);
+                temp = temp.substring(0, temp.indexOf("<"));
+                this.values.put("Visibility", temp);
+            }
+
+            if(s.contains("WDSP")) {
+                String temp = s;
+                temp = temp.substring(temp.indexOf(">") + 1);
+                temp = temp.substring(0, temp.indexOf("<"));
+                this.values.put("Wind Speed", temp);
+            }
+
+            if(s.contains("PRCP")) {
+                String temp = s;
+                temp = temp.substring(temp.indexOf(">") + 1);
+                temp = temp.substring(0, temp.indexOf("<"));
+                this.values.put("Precipitation", temp);
+            }
+
+            if(s.contains("SNDP")) {
+                String temp = s;
+                temp = temp.substring(temp.indexOf(">") + 1);
+                temp = temp.substring(0, temp.indexOf("<"));
+                this.values.put("Snow", temp);
+            }
+
+            if(s.contains("FRSHTT")) {
+                String temp = s;
+                temp = temp.substring(temp.indexOf(">") + 1);
+                temp = temp.substring(0, temp.indexOf("<"));
+                this.values.put("Events", temp);
+            }
+
+            if(s.contains("CLDC")) {
+                String temp = s;
+                temp = temp.substring(temp.indexOf(">") + 1);
+                temp = temp.substring(0, temp.indexOf("<"));
+                this.values.put("Clouds", temp);
+            }
+
+            if(s.contains("WNDDIR")) {
+                String temp = s;
+                temp = temp.substring(temp.indexOf(">") + 1);
+                temp = temp.substring(0, temp.indexOf("<"));
+                this.values.put("Wind Direction", temp);
+            }
+        }
+
+    }
+
+    public HashMap<String, String> getValues() {
+        return values;
     }
 
 

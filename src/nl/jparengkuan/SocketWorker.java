@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 public class SocketWorker implements Runnable {
@@ -19,25 +21,44 @@ public class SocketWorker implements Runnable {
     public void run() {
 
 
-
-        // String threadName = Thread.currentThread().getName();
-       // System.out.println("Hello iam " + threadName);
-
         try {
-            BufferedReader in = new BufferedReader(new InputStreamReader(this.clientSocket.getInputStream()));
 
-            String input;
-            String buffer = "";
+            InputStreamReader streamReader= new InputStreamReader(clientSocket.getInputStream());
+            BufferedReader reader = new BufferedReader(streamReader);
+            DataParser parser = new DataParser();
+            boolean record = false;
+            HashMap<String, String> values = new HashMap<>();
+            ArrayList list = new ArrayList<>();
+            FileWriter filewriter = new FileWriter();
 
-            while ((input = in.readLine()) != null){
 
+            while (!clientSocket.isClosed()) {
+                String line = reader.readLine();
 
+                if(line == null) {
+                    break;
+                } else {
+                    if(line.contains("<STN>")) {
+                        record = true;
+                    }
 
+                    if(line.contains("</MEASUREMENT>")) {
+                        parser.processList(list);
+                        //System.out.println(parser.getValues());
+                        filewriter.writeHandler(parser.getValues());
 
+                        record = false;
+                        list.clear();
+                        values.clear();
+                    }
 
+                    if(record) {
+                        list.add(line);
+                    }
+                }
             }
 
-            //in.close(); // Close the stream
+            reader.close();
 
         } catch (IOException e) {
             e.printStackTrace();

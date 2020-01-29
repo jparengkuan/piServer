@@ -42,8 +42,6 @@ public class FileWriter {
     }
 
 
-
-
     public static void writeData(LinkedList<String> weatherData) {
         try {
             Path currentDir = FileSystems.getDefault().getPath("");
@@ -81,6 +79,27 @@ public class FileWriter {
         weatherData.add("1");
         weatherData.add("1");
         weatherData.add("1");
+        FileWriter.writeData(weatherData);
+    }
+
+    public void writeHandler(HashMap<String, String> values) {
+        LinkedList<String> weatherData = new LinkedList<>();
+
+        weatherData.add(values.get("Station"));
+        weatherData.add(values.get("Date"));
+        weatherData.add(values.get("Time"));
+        weatherData.add(values.get("Temperature"));
+        weatherData.add(values.get("Dew"));
+        weatherData.add(values.get("Air Pressure Station"));
+        weatherData.add(values.get("Air Pressure Sea"));
+        weatherData.add(values.get("Visibility"));
+        weatherData.add(values.get("Wind Speed"));
+        weatherData.add(values.get("Preception"));
+        weatherData.add(values.get("Snow"));
+        weatherData.add(values.get("Events"));
+        weatherData.add(values.get("Clouds"));
+        weatherData.add(values.get("Wind Direction"));
+
         FileWriter.writeData(weatherData);
     }
 }
