@@ -51,7 +51,8 @@ public class FileWriter {
             writer.write((weatherData.get(2)+","+weatherData.get(4)+","+weatherData.get(6)
                     +","+weatherData.get(8)+","+weatherData.get(10)+","+weatherData.get(12)
                     +","+weatherData.get(14)+","+weatherData.get(16)+","+weatherData.get(18)
-                    +","+weatherData.get(20)+","+weatherData.get(22)+","+weatherData.get(24)+","+weatherData.get(28)+"\r\n").getBytes() );
+                    +","+weatherData.get(20)+","+weatherData.get(22)+","+weatherData.get(24)+
+                    ","+weatherData.get(26)+","+weatherData.get(28)+"\r\n").getBytes() );
 
 
         } catch (IOException e) {
