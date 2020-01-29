@@ -65,22 +65,5 @@ public class FileWriter {
             e.printStackTrace();
         }
     }
-    public static void main(String [] args){
-        LinkedList<String> weatherData=new LinkedList<>();
-        weatherData.add("1");
-        weatherData.add("1");
-        weatherData.add("1");
-        weatherData.add("1");
-        weatherData.add("1");
-        weatherData.add("1");
-        weatherData.add("1");
-        weatherData.add("1");
-        weatherData.add("1");
-        weatherData.add("1");
-        weatherData.add("1");
-        weatherData.add("1");
-        weatherData.add("1");
-        weatherData.add("1");
-        FileWriter.writeData(weatherData);
-    }
+
 }
