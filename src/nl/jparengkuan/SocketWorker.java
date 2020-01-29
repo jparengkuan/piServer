@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.util.Random;
 
 public class SocketWorker implements Runnable {
 
@@ -17,8 +18,10 @@ public class SocketWorker implements Runnable {
 
     public void run() {
 
-        String threadName = Thread.currentThread().getName();
-        System.out.println("Hello iam " + threadName);
+
+
+        // String threadName = Thread.currentThread().getName();
+       // System.out.println("Hello iam " + threadName);
 
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(this.clientSocket.getInputStream()));
@@ -28,24 +31,13 @@ public class SocketWorker implements Runnable {
 
             while ((input = in.readLine()) != null){
 
-                if (input.equals("\t<MEASUREMENT>")) {
-                    buffer = "";
-                }
 
 
 
-                buffer = buffer + input;
-
-                if (input.equals("\t</MEASUREMENT>")) {
-
-                    // Parse the data
-                    DataParser.DataParser(buffer);
-
-                }
 
             }
 
-            in.close(); // Close the stream
+            //in.close(); // Close the stream
 
         } catch (IOException e) {
             e.printStackTrace();
