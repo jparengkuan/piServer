@@ -38,10 +38,8 @@ public class SocketWorker implements Runnable {
 
                 if (input.equals("\t</MEASUREMENT>")) {
 
-                    String stnNumber = buffer.split(">")[2].replace("</STN", "");
-                    System.out.println(stnNumber);
-                    stnNumber = "";
-
+                    // Parse the data
+                    DataParser.DataParser(buffer);
 
                 }
 

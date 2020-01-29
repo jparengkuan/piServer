@@ -38,8 +38,7 @@ public class MtServer implements Runnable {
 
                 throw new RuntimeException("Error accepting client connection!", e);
             }
-
-            System.out.println(1);
+            
 
             SocketWorker worker = new SocketWorker(clientSocket);
             new Thread(worker).start();
