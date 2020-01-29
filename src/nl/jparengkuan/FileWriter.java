@@ -42,21 +42,24 @@ public class FileWriter {
         try {
             Path currentDir = FileSystems.getDefault().getPath("");
 
-            String path = currentDir + (String) weatherData.get(2) + ".csv";
+            String path = currentDir + weatherData.get(2) + ".csv";
 
             File file = new File(path);
             FileOutputStream writer=OpenFile(file,path);
 
 
-            writer.write((weatherData.get(2)+","+weatherData.get(4)+","+weatherData.get(6)
-                    +","+weatherData.get(8)+","+weatherData.get(10)+","+weatherData.get(12)
-                    +","+weatherData.get(14)+","+weatherData.get(16)+","+weatherData.get(18)
-                    +","+weatherData.get(20)+","+weatherData.get(22)+","+weatherData.get(24)+
-                    ","+weatherData.get(26)+","+weatherData.get(28)+"\r\n").getBytes() );
+            writer.write((weatherData.get(0)+","+weatherData.get(1)+","+weatherData.get(2)
+                    +","+weatherData.get(3)+","+weatherData.get(4)+","+weatherData.get(5)
+                    +","+weatherData.get(6)+","+weatherData.get(7)+","+weatherData.get(8)
+                    +","+weatherData.get(9)+","+weatherData.get(10)+","+weatherData.get(11)+
+                    ","+weatherData.get(12)+","+weatherData.get(13)+"\r\n").getBytes() );
 
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public static void main(String [] args){
+        FileWriter.writeData(new LinkedList<>());
     }
 }
