@@ -46,7 +46,7 @@ public class FileWriter {
         try {
             Path currentDir = FileSystems.getDefault().getPath("");
             String station_name=weatherData.get(0);
-            String path = currentDir + station_name + ".csv";
+            String path = currentDir + "output/" + station_name + ".csv";
 
 
             FileOutputStream writer=OpenFile(path,station_name);
