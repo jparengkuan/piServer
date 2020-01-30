@@ -29,10 +29,8 @@ public class DataParser {
         data.add(test[28].replace("</WNDDIR", ""));
         for(int i=0;i<=13;i++){
             if(data.get(i).equals("")) {
+                //maybe extrapolation here
                 switch(i){
-                    case 0:
-                        data.set(0,"1111111");
-                        break;
                     case 1:
                         data.set(1,"1111-11-11");
                         break;
