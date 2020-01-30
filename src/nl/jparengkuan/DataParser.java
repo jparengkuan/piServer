@@ -31,6 +31,7 @@ public class DataParser {
             if(data.get(i).equals("")) {
                 switch(i){
                     case 0:
+                        data.set(0,"1111111");
                         break;
                     case 1:
                         data.set(1,"1111-11-11");
