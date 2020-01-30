@@ -9,3 +9,13 @@
 .idea/vcs.xml
 
 .idea/workspace.xml
+
+ouput/production/piServer/nl/jparengkuan/DataParser.class
+
+ouput/production/piServer/nl/jparengkuan/FileWriter.class
+
+ouput/production/piServer/nl/jparengkuan/Main.class
+
+ouput/production/piServer/nl/jparengkuan/MtServer.class
+
+ouput/production/piServer/nl/jparengkuan/SocketWorker.class
