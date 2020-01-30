@@ -27,7 +27,55 @@ public class DataParser {
         data.add(test[24].replace("</FRSHTT", ""));
         data.add(test[26].replace("</CLDC", ""));
         data.add(test[28].replace("</WNDDIR", ""));
-    
+        for(int i=0;i<=13;i++){
+            if(data.get(i).equals("")) {
+                switch(i){
+                    case 0:
+                        break;
+                    case 1:
+                        data.set(1,"1111-11-11");
+                        break;
+                    case 2:
+                        data.set(2,"11:11:11");
+                        break;
+                    case 3:
+                        data.set(3,"111");
+                        break;
+                    case 4:
+                        data.set(4,"11");
+                        break;
+                    case 5:
+                        data.set(5,"-1111");
+                        break;
+                    case 6:
+                        data.set(6,"-1111");
+                        break;
+                    case 7:
+                        data.set(7,"-1111");
+                        break;
+                    case 8:
+                        data.set(8,"111");
+                        break;
+                    case 9:
+                        data.set(9,"111");
+                        break;
+                    case 10:
+                        data.set(10,"111");
+                        break;
+                    case 11:
+                        data.set(11,"000000");
+                        break;
+                    case 12:
+                        data.set(12,"111");
+                        break;
+                    case 13:
+                        data.set(13,"361");
+                        break;
+
+                }
+            }
+        }
+
 
 
         return data;
