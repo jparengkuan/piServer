@@ -1,2 +1,11 @@
 # Project exclude paths
 /out/
+.idea/misc.xml
+
+.idea/modules.xml
+
+.idea/piServer.iml
+
+.idea/vcs.xml
+
+.idea/workspace.xml
