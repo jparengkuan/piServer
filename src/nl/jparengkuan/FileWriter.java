@@ -62,32 +62,83 @@ public class FileWriter {
             byte seconds=Byte.valueOf(time[2]);
             String [] temp_array=weatherData.get(3).split("\\.");
             byte temp=Byte.valueOf(temp_array[0]);
-            byte temp_remainder=Byte.valueOf(temp_array[1]);
+            byte temp_remainder;
+            if(temp_array.length==2) {
+                temp_remainder = Byte.valueOf(temp_array[1]);
+            }else{
+                temp_remainder=0;
+            }
             String [] dewp_array=weatherData.get(4).split("\\.");
             byte dewp=Byte.valueOf(dewp_array[0]);
-            byte dewp_remainder=Byte.valueOf(dewp_array[1]);
+            byte dewp_remainder;
+            if(dewp_array.length==2) {
+                 dewp_remainder= Byte.valueOf(dewp_array[1]);
+            }  else{
+                dewp_remainder=0;
+            }
             String [] stp_array=weatherData.get(5).split("\\.");
             short stp=Short.valueOf(stp_array[0]);
-            byte stp_remainder=Byte.valueOf(stp_array[1]);
+            byte stp_remainder;
+            if(stp_array.length==2) {
+                stp_remainder= Byte.valueOf(stp_array[1]);
+            }  else{
+                stp_remainder=0;
+            }
             String [] slp_array=weatherData.get(6).split("\\.");
             short slp=Short.valueOf(slp_array[0]);
-            byte slp_remainder=Byte.valueOf(slp_array[1]);
+            byte slp_remainder;
+            if(slp_array.length==2) {
+                slp_remainder= Byte.valueOf(slp_array[1]);
+            }  else{
+                slp_remainder=0;
+            }
             String [] visib_array=weatherData.get(7).split("\\.");
             short visib=Short.valueOf(visib_array[0]);
-            byte visib_remainder=Byte.valueOf(visib_array[1]);
+            byte visib_remainder;
+            if(visib_array.length==2) {
+                visib_remainder= Byte.valueOf(visib_array[1]);
+            }  else{
+                visib_remainder=0;
+            }
             String [] wdsp_array=weatherData.get(8).split("\\.");
             byte wdsp=Byte.valueOf(wdsp_array[0]);
-            byte wdsp_remainder=Byte.valueOf(wdsp_array[1]);
+            byte wdsp_remainder;
+            if(wdsp_array.length==2) {
+                wdsp_remainder= Byte.valueOf(wdsp_array[1]);
+            }  else{
+                wdsp_remainder=0;
+            }
             String [] prcp_array=weatherData.get(9).split("\\.");
             byte prcp=Byte.valueOf(prcp_array[0]);
-            byte prcp_remainder=Byte.valueOf(prcp_array[1]);
+            byte prcp_remainder;
+            if(prcp_array.length==2) {
+                prcp_remainder= Byte.valueOf(prcp_array[1]);
+            }  else{
+                prcp_remainder=0;
+            }
             String [] sndp_array=weatherData.get(10).split("\\.");
             byte sndp=Byte.valueOf(sndp_array[0]);
-            byte sndp_remainder=Byte.valueOf(sndp_array[1]);
-            byte frshtt=Byte.parseByte(weatherData.get(11)+"00",2);
+            byte sndp_remainder;
+            if(sndp_array.length==2) {
+                sndp_remainder= Byte.valueOf(sndp_array[1]);
+            }  else{
+                sndp_remainder=0;
+            }
+
+            byte frshtt=0;
+            for (int i=0;i<6;i++){
+                char c=weatherData.get(11).charAt(i);
+                frshtt+=Byte.parseByte(String.valueOf(c));
+            }
+
             String [] cldc_array=weatherData.get(12).split("\\.");
             byte cldc=Byte.valueOf(cldc_array[0]);
-            byte cldc_remainder=Byte.valueOf(cldc_array[1]);
+            byte cldc_remainder;
+            if(cldc_array.length==2) {
+                cldc_remainder= Byte.valueOf(cldc_array[1]);
+            }  else{
+                cldc_remainder=0;
+            }
             short wnddir=Short.valueOf(weatherData.get(13));
             byte [] bytes={
                     (byte) year,
@@ -123,6 +174,7 @@ public class FileWriter {
                     (byte)(wnddir >>8),
             };
             writer.write(bytes);
+
 
 
         } catch (IOException e) {

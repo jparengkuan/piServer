@@ -10,6 +10,9 @@ public class DataParser {
 
         String[] test = buffer.split(">");
 
+
+
+
         data.add(test[2].replace("</STN", ""));
         data.add(test[4].replace("</DATE", ""));
         data.add(test[6].replace("</TIME", ""));
@@ -24,6 +27,7 @@ public class DataParser {
         data.add(test[24].replace("</FRSHTT", ""));
         data.add(test[26].replace("</CLDC", ""));
         data.add(test[28].replace("</WNDDIR", ""));
+    
 
 
         return data;
