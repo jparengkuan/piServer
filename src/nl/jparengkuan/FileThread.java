@@ -5,10 +5,10 @@ import java.util.Stack;
 
 public class FileThread implements Runnable {
     private static Stack<LinkedList<String>> buffer=new Stack<>();
-    synchronized public static void addValue(LinkedList<String> measurement){
+    public static void addValue(LinkedList<String> measurement){
         buffer.push(measurement);
     }
-    synchronized public static LinkedList<String>getValue(){
+   public static LinkedList<String>getValue(){
       return  buffer.pop();
     }
 
