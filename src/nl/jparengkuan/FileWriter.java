@@ -95,7 +95,7 @@ public class FileWriter {
             byte prcp=Byte.valueOf(prcp_array[0]);
             byte prcp_remainder=get_remainder(prcp_array);
             String [] sndp_array=weatherData.get(10).split("\\.");
-            byte sndp=Byte.valueOf(sndp_array[0]);
+            byte sndp=(byte)Integer.parseInt(sndp_array[0]);
             byte sndp_remainder=get_remainder(sndp_array);
             byte frshtt=0;
             for (int i=0;i<6;i++){
