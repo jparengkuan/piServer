@@ -7,5 +7,7 @@ public class Main {
 
         MtServer server = new MtServer(7789);
         new Thread(server).start();
+        Thread filethread=new Thread(new FileThread());
+        filethread.start();
     }
 }

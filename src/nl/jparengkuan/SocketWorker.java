@@ -42,8 +42,7 @@ public class SocketWorker implements Runnable {
 
                  LinkedList<String> data=DataParser.DataParser(buffer);
 
-                    Thread thread=new Thread(new FileThread(data));
-                    thread.start();
+                    FileThread.addValue(data);
                 }
 
                 }
