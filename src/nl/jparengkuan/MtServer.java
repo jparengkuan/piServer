@@ -26,9 +26,9 @@ public class MtServer implements Runnable {
 
         //Open een nieuwe serverSocket
         openServerSocket();
-
+         while(true) {
         Socket clientSocket = null;
-
+        
 
         // Try accepting the incoming connection
         // Else throw a runtime error
@@ -49,6 +49,7 @@ public class MtServer implements Runnable {
 
         //Increase the delay
         this.delay += 200;
+       } 
 
     }
 
