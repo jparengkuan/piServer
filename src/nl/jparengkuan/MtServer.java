@@ -26,7 +26,7 @@ public class MtServer implements Runnable {
 
         //Open een nieuwe serverSocket
         openServerSocket();
-        while(true){
+
         Socket clientSocket = null;
 
 
@@ -34,6 +34,12 @@ public class MtServer implements Runnable {
         // Else throw a runtime error
         try {
             clientSocket = this.serverSocket.accept();
+
+            // zet keepAlive aan
+            clientSocket.setKeepAlive(true);
+
+            // Zet een timeout van 1 minuut
+            clientSocket.setSoTimeout(1000 * 60);
         } catch (IOException e) {
             throw new RuntimeException("Cannot open accept the connection: ", e);
         }
@@ -43,7 +49,6 @@ public class MtServer implements Runnable {
 
         //Increase the delay
         this.delay += 200;
-     }
 
     }
 
