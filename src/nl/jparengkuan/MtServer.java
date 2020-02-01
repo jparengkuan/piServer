@@ -48,7 +48,7 @@ public class MtServer implements Runnable {
         executor.schedule(new SocketWorker(clientSocket), this.delay, TimeUnit.MILLISECONDS);
 
         //Increase the delay
-        this.delay += 20;
+        this.delay += 200;
 
     }
 
