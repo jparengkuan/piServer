@@ -35,7 +35,7 @@ public class MtServer implements Runnable {
         try {
             clientSocket = this.serverSocket.accept();
 
-
+            // zet keepAlive aan
             clientSocket.setKeepAlive(true);
 
             // Zet een timeout van 1 minuut
