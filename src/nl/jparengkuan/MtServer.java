@@ -7,6 +7,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * This class contains the server socket that accepts client sockets
+ */
 public class MtServer implements Runnable {
 
     protected int serverPort;
@@ -21,6 +24,10 @@ public class MtServer implements Runnable {
         this.executor = Executors.newScheduledThreadPool(800);
     }
 
+    /**
+     * This functions runs a thread that lets the server socket accept client sockets
+     *
+     */
     @Override
     public void run() {
 
@@ -53,7 +60,9 @@ public class MtServer implements Runnable {
 
     }
 
-
+    /**
+     * This function creates a server socket
+     */
     private void openServerSocket() {
         try {
             this.serverSocket = new ServerSocket(this.serverPort);

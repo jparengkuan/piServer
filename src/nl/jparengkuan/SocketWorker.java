@@ -8,6 +8,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Random;
 
+/**
+ * This class handles an individual socket
+ */
 public class SocketWorker implements Runnable {
 
     protected Socket clientSocket = null;
@@ -17,7 +20,10 @@ public class SocketWorker implements Runnable {
         this.clientSocket = clientSocket;
     }
 
-
+    /**
+     * This method runs a thread that reads a socket's data, calls the Dataparser.Dataparser function
+     * to parse the data and then calls the Filewriter.writeData function to write the parsed data to a file.
+     */
     public void run() {
 
 

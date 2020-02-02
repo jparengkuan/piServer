@@ -9,6 +9,9 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+/**
+ * This class contains methods to create binary files and write parsed data to them
+ */
 public class FileWriter {
     public static byte get_remainder(String []array){
         byte remainder=0;
@@ -21,7 +24,13 @@ public class FileWriter {
         }
 
 
-
+    /**
+     * This function opens files and if they are already opened they will stay open
+     * The function will return the stream of the opened file
+     * @param path the path to the file
+     * @param name  the name to store the filestream of the file under
+     * @return stream  the stream of an open file
+     */
     static HashMap<String,FileOutputStream> open_streams=new HashMap<>();
     public static FileOutputStream  OpenFile(String path,String name){
         File file=new File(path);
@@ -54,8 +63,10 @@ public class FileWriter {
     }
 
 
-
-
+    /**
+     * This method writes parsed data to a binary file
+     * @param weatherData the parsed data to write to a binary file
+     */
     public static void writeData(LinkedList<String> weatherData) {
         try {
             Path currentDir = FileSystems.getDefault().getPath("");

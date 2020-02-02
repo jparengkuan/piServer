@@ -2,8 +2,15 @@ package nl.jparengkuan;
 
 import java.util.LinkedList;
 
+/**
+ * This class handles incoming data from a server socket
+ */
 public class DataParser {
-
+    /**
+     * This method takes incomming data from a server socket and stores it in a LinkedList
+     * @param buffer the incomming data from the server socket
+     * @return data the resulting LinkedList
+     */
     public static LinkedList<String> DataParser(String buffer)
     {
         LinkedList<String> data = new LinkedList<String>();
